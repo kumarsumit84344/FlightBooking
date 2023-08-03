@@ -1,0 +1,382 @@
+<div id="preloader" *ngIf="showLoader">
+  <div id="loader"></div>
+  <div class="msg">
+    <h2>{{ statusMsg }}</h2>
+  </div>
+</div>
+<div div class="body" [ngClass]="{ blur: showLoader }">
+  <div class="container">
+    <h2 class="card1header">Review your Journey</h2>
+  </div>
+  <div class="card">
+    <div class="card1">
+      <ng-container>
+        <h2 class="sourcedata">{{ source }} - {{ dest }}</h2></ng-container
+      >
+      <p class="layoverdetail">
+        {{ layover }} | All departure/arrival times are in local time
+      </p>
+
+      <div class="details">
+        <div class="sourcedetails">
+          <div class="nameimg">
+            <img
+              *ngIf="service.bookingData.name == 'Vistara'"
+              src="../../assets/Vistara_Logo.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'SpiceJet'"
+              src="../../assets/spicejet.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'AirAsia'"
+              src="../../assets/spicejet-removebg-preview.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'IndiGo'"
+              src="../../assets/indigo-vector-logo-2022-small-removebg-preview.png"
+              alt=""
+            />
+          </div>
+          <h3 class="sourcedate">
+            Starts on -
+            <span class="dateformat">{{ givenDate | date : "fullDate" }}</span>
+          </h3>
+          <h2 class="departuretime">{{ departureTime }}</h2>
+          <h2 class="sourcecode">{{ sourceAirportCode }}</h2>
+          <p class="source">{{ source }}</p>
+          <p class="sourceairport">{{ sourceAirport }}</p>
+        </div>
+        <div class="direction">
+          <div class="arrow">
+            <mat-icon class="lens">lens</mat-icon>-------------------
+            <span>{{ duration }}</span> -------------------<mat-icon
+              class="next"
+              >navigate_next</mat-icon
+            >
+          </div>
+        </div>
+
+        <div class="destdetails">
+          <h2 class="desthead">ECONOMY | <span>economy</span></h2>
+          <h3 class="destdate">
+            Arrives on -
+            <span class="destdateformat">{{
+              givenDate | date : "fullDate"
+            }}</span>
+          </h3>
+          <h2 class="arrivaltime">{{ arrivalTime }}</h2>
+          <h2 class="code">{{ destinationAirportCode }}</h2>
+          <p class="dest">{{ dest }}</p>
+          <p class="destairport">{{ destinationAirport }}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="baggage">
+        <p class="baggagehead">
+          Baggage -
+          <span
+            ><mat-icon class="bag">business_center</mat-icon> 7 Kgs (1 piece
+            only)</span
+          >
+          Cabin
+        </p>
+
+        <p class="checkin">
+          <mat-icon class="bag">work_outline</mat-icon>15 Kgs (1 piece only)
+          <span>Check-In</span>
+        </p>
+        <div class="link">
+          <a class="baggagedetail" (click)="baggagedetail()"
+            >View Baggage Details</a
+          >
+          <a (click)="faredetail()">View Fare Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="card2">
+      <h2 class="card2hearder">Fare Summary</h2>
+      <hr />
+      <div class="pricesummary">
+        <div class="basefare">
+          <h3>Base fare</h3>
+          <h2>₹{{ fare }}</h2>
+        </div>
+        <hr />
+        <div class="seatprice">
+          <h3>Seat</h3>
+          <h2>₹{{ seatPrice }}</h2>
+        </div>
+        <hr />
+        <div class="tax">
+          <h3>Taxes and Surcharges</h3>
+          <h2>₹1200</h2>
+        </div>
+        <hr />
+        <div class="total">
+          <h2>Grand Total</h2>
+          <h2>₹{{ grandTotal }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="payment">
+    <button (click)="payment()">Proceed to Pay</button>
+  </div>
+  <div class="card3">
+    <h2 class="card3hearder">CANCELLATION & DATE CHANGE POLICY</h2>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="panel">
+              <div class="left">{{ source }} to {{ dest }}</div>
+              <div class="right"><p>Partially Refundable</p></div>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expand">
+          <div class="cancel">
+            <p>Cancellation Charges</p>
+            <table>
+              <tr>
+                <th>If cancelled</th>
+                <th>Charges</th>
+              </tr>
+              <tr>
+                <td>Plateform Fee</td>
+                <td>₹300</td>
+              </tr>
+              <tr>
+                <td>0-2 hours</td>
+                <td>Non Refundable</td>
+              </tr>
+              <tr>
+                <td>2-72 hours</td>
+                <td>₹3500</td>
+              </tr>
+              <tr>
+                <td>>72 hours</td>
+                <td>₹3100</td>
+              </tr>
+            </table>
+          </div>
+          <div class="reschedule">
+            <p>Reschedule Charges</p>
+            <table>
+              <tr>
+                <th>If rescheduled</th>
+                <th>Charges</th>
+              </tr>
+              <tr>
+                <td>Plateform Fee</td>
+                <td>₹300</td>
+              </tr>
+              <tr>
+                <td>0-2 hours</td>
+                <td>Non Refundable</td>
+              </tr>
+              <tr>
+                <td>2-72 hours</td>
+                <td>₹3300</td>
+              </tr>
+
+              <tr>
+                <td>>72 hours</td>
+                <td>₹2800</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="card4">
+    <fieldset>
+      <legend>IMPORTANT INFORMATION</legend>
+      <h2>
+        <mat-icon>notification_important</mat-icon>
+        <span class="subhead">Pre-Flight Checklist</span>
+      </h2>
+
+      <ul>
+        <li>
+          <span class="ageid">Age/ID Proof:</span> Only registered doctors and
+          nurses can avail these special fares.
+        </li>
+        <li>
+          It is mandatory to carry medical id or proof at the airport. Otherwise
+          the prevailing fares will be charged.
+        </li>
+        <li>
+          Remember to web check-in before arriving at the airport; carry a
+          printed or soft copy of the boarding pass.
+        </li>
+        <li>
+          Wearing masks/face covers is no longer mandatory. However, all
+          travellers are advised to wear them, in view of the threat posed by
+          COVID-19.
+        </li>
+        <li>
+          One hand bag up to 7 kgs and 55x35x25cm, is allowed per traveller as
+          cabin baggage. Certain personal articles like a lady's purse, laptop
+          bags, etc. can be carried additionally.
+        </li>
+        <li>
+          Check the detailed list of travel guidelines issued by Indian States
+          and UTs here KNOW MORE
+        </li>
+        <li>
+          If you have arrived on any international flight and are taking a
+          connecting domestic flight, please check the 'Travelling to India' tab
+          HERE
+        </li>
+        <br />
+        <p>
+          DISCLAIMER: The information provided above is only for ready reference
+          and convenience of customers, and may not be exhaustive. We strongly
+          recommend that you check the full text of the guidelines issued by the
+          State Governments and Airlines before travelling to ensure smooth
+          travel. We accept no liability in this regard. In case you do not meet
+          the required guidelines, the airline or state authorities can stop you
+          from travelling.
+        </p>
+      </ul>
+    </fieldset>
+  </div>
+  <div class="card5">
+    <h2>TRAVELLER DETAILS</h2>
+    <hr />
+    <div class="note">
+      <p>
+        <span>NOTE:</span>Please make sure you enter the Name as per your govt.
+        photo id.
+      </p>
+    </div>
+    <form [formGroup]="traveller_details" (submit)="proceed()">
+      <div class="box">
+        <div class="name">
+          <div class="Adultname">
+            <label>Name</label>
+          </div>
+          <div class="title">
+            <select name="" id="" formControlName="Title">
+              <option value="" selected disabled hidden>Title</option>
+              <option value="Mr">Mr</option>
+              <option value="Ms">Ms</option>
+              <option value="Mrs">Mrs</option>
+            </select>
+          </div>
+          <div class="firstname">
+            <input
+              class="inputfield"
+              type="text"
+              formControlName="FirstName"
+              placeholder="First Name"
+            />
+          </div>
+          <div class="secondname">
+            <input
+              class="inputfield"
+              type="text"
+              formControlName="LastName"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="email">
+          <label>Email Address</label>
+          <input
+            class="inputfield"
+            type="email"
+            formControlName="Email"
+            placeholder="Email Address"
+          />
+          <p>Your ticket will be sent to this email address</p>
+        </div>
+
+        <br />
+        <div class="mobile">
+          <label>Mobile Number</label>
+          <input
+            class="inputfield"
+            type="text"
+            formControlName="Contact"
+            placeholder="Mobile Number"
+          />
+        </div>
+
+        <br />
+        <hr />
+        <br /><br />
+
+        <button
+          class="btn"
+          mat-raised-button
+          type="submit"
+          mat-raised-button
+          [style.backgroundColor]="traveller_details.valid ? 'green' : 'red'"
+          [style.color]="traveller_details.valid ? 'white' : 'white'"
+        >
+          <!-- [disabled]="!traveller_details.valid" -->
+          Proceed
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="afterdetails">
+    <!-- *ngIf="validDetails" -->
+    <div class="card6">
+      <div class="cardhead">
+        <h2>Seats</h2>
+        <h2>₹{{ seatPrice }}</h2>
+      </div>
+      <div class="flexbox">
+        <div class="content">
+          <div class="base">
+            <div class="col1">
+              <div class="leftseat" *ngFor="let seat of seatDetails">
+                <mat-icon
+                  class="seaticon"
+                  title="₹{{ seat.price }}"
+                  (click)="highlighted(seat)"
+                  [style.color]="seat.isSelected ? 'white' : seat.color"
+                  >event_seat</mat-icon
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col2">
+          <div class="index">
+            <div class="info">
+              <p>
+                Adult1 -
+                <span>{{ seat }}</span>
+              </p>
+            </div>
+            <div class="redsection">
+              <mat-icon class="red">event_seat</mat-icon>
+              <p>₹1300</p>
+            </div>
+
+            <div class="redsection">
+              <mat-icon class="blue">event_seat</mat-icon>
+              <p>₹500</p>
+            </div>
+            <div class="redsection">
+              <mat-icon class="green">event_seat</mat-icon>
+              <p>₹700</p>
+            </div>
+          </div>
+          <div class="price"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

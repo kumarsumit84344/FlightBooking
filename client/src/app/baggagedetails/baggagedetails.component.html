@@ -1,0 +1,49 @@
+<div class="body">
+  <div class="header">
+    <h3>Baggage Details</h3>
+  </div>
+  <div class="detailhead">
+    <div class="nameimg">
+      <img
+        *ngIf="service.bookingData.name == 'Vistara'"
+        src="../../assets/Vistara_Logo.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'SpiceJet'"
+        src="../../assets/spicejet.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'AirAsia'"
+        src="../../assets/spicejet-removebg-preview.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'IndiGo'"
+        src="../../assets/indigo-vector-logo-2022-small-removebg-preview.png"
+        alt=""
+      />
+    </div>
+    <div class="sourcedest">
+      <h3>{{ sourceAirportCode }} - {{ destinationAirportCode }}</h3>
+    </div>
+
+    <div class="close"><mat-icon mat-dialog-close>close</mat-icon></div>
+  </div>
+
+  <div class="tab">
+    <table>
+      <tr>
+        <th>Baggage Type</th>
+        <th>Check-In</th>
+        <th>Cabin</th>
+      </tr>
+      <tr>
+        <td>Adult</td>
+        <td>7 Kgs (1 piece only)</td>
+        <td>15 Kgs (1 piece only)</td>
+      </tr>
+    </table>
+  </div>
+</div>

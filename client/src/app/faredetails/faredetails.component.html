@@ -1,0 +1,51 @@
+<div class="body">
+  <div class="header">
+    <h3>Baggage Details</h3>
+  </div>
+  <div class="detailhead">
+    <div class="nameimg">
+      <img
+        *ngIf="service.bookingData.name == 'Vistara'"
+        src="../../assets/Vistara_Logo.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'SpiceJet'"
+        src="../../assets/spicejet.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'AirAsia'"
+        src="../../assets/spicejet-removebg-preview.png"
+        alt=""
+      />
+      <img
+        *ngIf="service.bookingData.name == 'IndiGo'"
+        src="../../assets/indigo-vector-logo-2022-small-removebg-preview.png"
+        alt=""
+      />
+    </div>
+    <div class="sourcedest">
+      <h3>{{ sourceAirportCode }} - {{ destinationAirportCode }}</h3>
+    </div>
+
+    <div class="close"><mat-icon mat-dialog-close>close</mat-icon></div>
+  </div>
+
+  <div class="tab">
+    <table>
+      <tr>
+        <th>Date change fee, per passenger</th>
+        <th>Cancellation fee, per passenger</th>
+        <th>Seat</th>
+        <th>Meal</th>
+      </tr>
+      <tr>
+        <td>Starting from ₹2750</td>
+        <td>Starting from ₹3000</td>
+        <td>Chargeable (Some seats could be FREE)</td>
+        <td>chargeable</td>
+      </tr>
+    </table>
+  </div>
+</div>

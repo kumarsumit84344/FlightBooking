@@ -1,0 +1,24 @@
+<div class="body">
+  <div class="header">
+    <div class="logo"><img src="../../assets/logo.png" alt="" /></div>
+    <div class="nav-bar"></div>
+    <div class="login">
+      <div class="profile"></div>
+      <div class="name" *ngIf="!service.isUserLoggedIn || !email">
+        <a (click)="openDialog()">Login/Signup</a>
+      </div>
+      <div class="name" *ngIf="service.isUserLoggedIn">
+        <a>{{ email }}</a>
+      </div>
+    </div>
+  </div>
+  <!-- <form [formGroup]="Details" (ngSubmit)="onSubmit()">
+        Name:<input type="text" formControlName="name">
+        <br>
+       Airport <input type="text" formControlName="airport">
+       <br>
+        <button type="submit">submit</button>
+        </form>
+    
+</div> -->
+</div>

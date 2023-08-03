@@ -1,0 +1,103 @@
+<div id="preloader" *ngIf="showLoader">
+  <div id="loader"></div>
+  <div class="msg">
+    <h2>{{ statusMsg }}</h2>
+  </div>
+</div>
+<div class="body" [ngClass]="{ blur: showLoader }">
+  <button class="button" (click)="print()">Print</button>
+  <div class="card1">
+    <ng-container>
+      <h2 class="sourcedata">
+        {{ travellerDetails.source }} - {{ travellerDetails.dest }}
+      </h2></ng-container
+    >
+    <p class="layoverdetail">
+      {{ travellerDetails.layover }} | All departure/arrival times are in local
+      time
+    </p>
+
+    <div class="details">
+      <div class="sourcedetails">
+        <div class="sourcehead">
+          <div class="nameimg">
+            <img
+              *ngIf="service.bookingData.name == 'Vistara'"
+              src="../../assets/Vistara_Logo.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'SpiceJet'"
+              src="../../assets/spicejet.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'AirAsia'"
+              src="../../assets/spicejet-removebg-preview.png"
+              alt=""
+            />
+            <img
+              *ngIf="service.bookingData.name == 'IndiGo'"
+              src="../../assets/indigo-vector-logo-2022-small-removebg-preview.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <h3 class="sourcedate">
+          Starts on -
+          <span class="dateformat">{{
+            travellerDetails.givenDate | date : "fullDate"
+          }}</span>
+        </h3>
+        <h2 class="departuretime">{{ travellerDetails.departureTime }}</h2>
+        <h2 class="sourcecode">{{ travellerDetails.sourceAirportCode }}</h2>
+        <p class="source">{{ travellerDetails.source }}</p>
+        <p class="sourceairport">{{ travellerDetails.sourceAirport }}</p>
+      </div>
+      <!-- <div class="direction">
+        <div class="arrow">
+          <mat-icon class="lens">lens</mat-icon>-------------------
+          <span>{{ travellerDetails.duration }}</span>
+          -------------------<mat-icon class="next">navigate_next</mat-icon>
+        </div>
+      </div> -->
+
+      <div class="destdetails">
+        <h2 class="desthead">ECONOMY | <span>economy</span></h2>
+        <h3 class="destdate">
+          Arrives on -
+          <span class="destdateformat">{{
+            travellerDetails.givenDate | date : "fullDate"
+          }}</span>
+        </h3>
+        <h2 class="arrivaltime">{{ travellerDetails.arrivalTime }}</h2>
+        <h2 class="code">{{ travellerDetails.destinationAirportCode }}</h2>
+        <p class="dest">{{ travellerDetails.dest }}</p>
+        <p class="destairport">{{ travellerDetails.destinationAirport }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="passenger">
+    <h2>Traveller Details</h2>
+    <div class="passengerinfo">
+      <table>
+        <tr>
+          <th>Passenger</th>
+          <th>Airline PNR</th>
+          <th>Class|Cabin</th>
+          <th>Seat No.</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>
+            {{ passengerDetails.FirstName }} {{ passengerDetails.LastName }}
+          </td>
+          <td>{{ travellerDetails.PNR | uppercase }}</td>
+          <td>Economy</td>
+          <td>{{ travellerDetails.seatNo }}</td>
+          <td>Confirm</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

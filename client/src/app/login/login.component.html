@@ -1,0 +1,50 @@
+<div class="form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="box">
+            <mat-card-content>
+          
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                class="inputfield"
+                type="email"
+                formControlName="email"
+                matInput
+                />
+            </mat-form-field>
+            <br /><br/>
+
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                class="inputfield"
+                type="Password"
+                formControlName="password"
+                matInput
+                />
+            </mat-form-field>
+            <br /><br/>
+            <mat-card-actions>
+                <button
+                class="btn"
+                mat-raised-button
+                type="submit"
+                mat-raised-button
+                [disabled]="!loginForm.valid"
+                mat-dialog-close
+                >
+                Login
+                </button>
+            </mat-card-actions>
+            <div class="footer">
+                <div class="success" *ngIf="signin"><mat-icon>check</mat-icon></div>
+                <p>
+                Need an account? <a class="red" mat-dialog-close (click)="openDialog()">Signup</a>
+                </p>
+            </div>
+            </mat-card-content>
+     
+        </div>
+    </form>
+</div>

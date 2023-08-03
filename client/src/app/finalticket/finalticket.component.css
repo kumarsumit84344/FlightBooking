@@ -1,0 +1,348 @@
+.card1 {
+    border: 2px solid white;
+    padding-top: 12px;
+    padding-right: 27px;
+    padding-left: 17px;
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+    margin-top: 25px;
+}
+
+.sourcedata {
+    border-left: 5px solid black;
+    padding-left: 10px;
+}
+
+.card1header {
+    width: fit-content;
+    position: relative;
+    top: 91px;
+    left: 202px;
+    font-size: 43px;
+    color: white;
+    font-weight: 500;
+}
+
+.nameimg img {
+    width: 126px;
+    height: 38px;
+    padding-top: 5px;
+
+}
+
+.details {
+    border: 2px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details .sourcedetails {
+    margin-left: 15px;
+}
+
+.sourcedate {
+    width: fit-content;
+    margin-top: 11px;
+    background-color: #E5F3FF;
+    padding: 6px;
+    border: 1px solid lightblue;
+    border-radius: 24px;
+    font-size: 14px;
+}
+
+.dateformat {
+    font-weight: 600;
+}
+
+.departuretime {
+    margin-bottom: 0px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.sourcecode {
+    margin-bottom: 21px;
+}
+
+.source {
+    margin-bottom: 18px;
+}
+
+.sourceairport {
+    color: grey;
+}
+
+.layoverdetail {
+    margin-left: 16px;
+}
+
+
+
+
+.destdateformat {
+    font-weight: 600;
+}
+
+.desthead {
+    width: fit-content;
+    margin-top: 10px;
+    margin-left: 119px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.desthead span {
+    font-weight: 500;
+}
+
+.arrivaltime {
+    margin-bottom: 0px;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 203px;
+}
+
+.code {
+    margin-bottom: 21px;
+    margin-left: 234px;
+}
+
+.dest {
+    margin-left: 228px;
+    margin-bottom: 18px;
+}
+
+.destairport {
+    color: grey;
+    margin-left: -21px;
+
+}
+
+.destdate {
+    width: fit-content;
+    margin-top: 11px;
+    background-color: #E5F3FF;
+    padding: 6px;
+    border: 1px solid lightblue;
+    border-radius: 24px;
+    margin-left: 31px;
+}
+
+.destdetails {
+    margin-right: 16px;
+}
+
+.arrow {
+    width: fit-content;
+    font-size: 43px;
+    position: absolute;
+    color: rgb(164, 160, 160);
+    font-weight: 100;
+    margin-top: 120px;
+    margin-left: -342px;
+}
+
+.lens {
+    position: absolute;
+    margin-left: -9px;
+}
+
+.next {
+    font-size: 39px;
+    width: 40px;
+    height: 40px;
+    margin-left: -22px;
+    margin-top: -7px;
+    position: absolute;
+}
+
+.arrow span {
+    font-size: 22px;
+    position: relative;
+    top: -7px;
+}
+
+.sourcehead {
+    display: flex;
+}
+
+.pnr p {
+    margin-top: 14px;
+    margin-left: 27px;
+}
+
+.pnr span {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.body {
+    padding: 33px;
+}
+
+.passenger table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.passenger td,
+th {
+    border: 1px solid grey;
+    text-align: left;
+    padding: 8px;
+}
+
+.passenger :nth-child(odd) {
+    background-color: #dddddd;
+}
+
+
+
+
+/* CSS */
+.button {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 31px;
+    min-width: 0;
+    outline: none;
+    /* padding: 16px 24px; */
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 85px;
+    will-change: transform;
+    position: relative;
+    float: right;
+    margin-top: -21px;
+}
+
+.button:disabled {
+    pointer-events: none;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+#preloader {
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.msg {
+    margin-top: 368px;
+    margin-left: 627px;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: grey;
+}
+
+.msg h2 {
+    font-family: math;
+}
+
+.blur {
+    filter: blur(20px);
+}

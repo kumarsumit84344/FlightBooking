@@ -1,0 +1,1096 @@
+<div class="body">
+  <app-dashboard></app-dashboard>
+  <section>
+    <div class="content">
+      <div class="head">
+        <h2>Compare and book flights with ease</h2>
+        <h3>Discover your next dream destination</h3>
+      </div>
+      <div class="ways">
+        <input
+          class="oneway"
+          type="radio"
+          id="oneway"
+          name="ways"
+          value="oneway"
+          (change)="onChange($event)"
+          checked="checked"
+        />
+        <label for="html" checked>One-way</label>
+        <input
+          class="round"
+          type="radio"
+          id="round"
+          name="ways"
+          value="round"
+          (change)="onChange($event)"
+        />
+        <label for="css">Round-trip</label>
+      </div>
+      <form [formGroup]="oneWayTravelDetails" (ngSubmit)="onSubmit()">
+        <div class="search">
+          <div class="searchdetail">
+            <div class="onwaytrip" *ngIf="selected !== 'round'">
+              <div class="source">
+                <input
+                  type="text"
+                  (keyup)="fetchSeries($event)"
+                  placeholder="search"
+                  list="sources"
+                  name="source"
+                  formControlName="onewaySource"
+                />
+                <datalist id="sources">
+                  <option
+                    *ngFor="let opt of searchResult"
+                    [value]="opt.airport"
+                  >
+                    {{ opt.name }}
+                  </option>
+                </datalist>
+              </div>
+
+              <div class="dest">
+                <input
+                  type="text"
+                  (keyup)="fetchdest($event)"
+                  placeholder="destination"
+                  list="dests"
+                  name="dest"
+                  formControlName="onewayDest"
+                />
+                <datalist id="dests">
+                  <option
+                    *ngFor="let item of destResult"
+                    [value]="item.airport"
+                  >
+                    {{ item.name }}
+                  </option>
+                </datalist>
+              </div>
+
+              <div class="date">
+                <input
+                  type="text"
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  placeholder="Choose Date"
+                  formControlName="onewayDate"
+                />
+              </div>
+              <div class="searchbtn">
+                <button
+                  class="btn"
+                  type="submit"
+                  [disabled]="!oneWayTravelDetails.valid"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form [formGroup]="roundTravelDetails" (ngSubmit)="onSubmit()">
+        <div class="search">
+          <div class="searchdetail">
+            <div class="roundtrip" *ngIf="selected === 'round'">
+              <div class="source">
+                <input
+                  type="text"
+                  (keyup)="fetchSeries($event)"
+                  placeholder="Source"
+                  list="sources"
+                  name="source"
+                  formControlName="roundSource"
+                />
+                <datalist id="sources">
+                  <option
+                    *ngFor="let opt of searchResult"
+                    [value]="opt.airport"
+                  >
+                    {{ opt.name }}
+                  </option>
+                </datalist>
+              </div>
+
+              <div class="dest">
+                <input
+                  type="text"
+                  (keyup)="fetchdest($event)"
+                  placeholder="destination"
+                  list="dests"
+                  name="dest"
+                  formControlName="roundDest"
+                />
+                <datalist id="dests">
+                  <option
+                    *ngFor="let item of destResult"
+                    [value]="item.airport"
+                  >
+                    {{ item.name }}
+                  </option>
+                </datalist>
+              </div>
+
+              <div class="date">
+                <input
+                  type="text"
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  placeholder="Choose Travelling Date"
+                  formControlName="roundTravelDate"
+                />
+              </div>
+              <div class="date">
+                <input
+                  type="text"
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  placeholder="Choose Returning Date"
+                  formControlName="roundReturnDate"
+                />
+              </div>
+              <div class="searchbtn">
+                <button
+                  class="btn"
+                  type="submit"
+                  [disabled]="!roundTravelDetails.valid"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="air air1"></div>
+    <div class="air air2"></div>
+    <div class="air air3"></div>
+    <div class="air air4"></div>
+    <div class="icon1"><mat-icon> flight</mat-icon></div>
+    <div class="icon2"><mat-icon> flight</mat-icon></div>
+    <div class="icon3"><mat-icon> flight</mat-icon></div>
+  </section>
+
+  <div class="bottom" *ngIf="!flightResult">
+    <div class="header">
+      <h2>Fly worldwide with Booking</h2>
+      <h3>Flights from wherever you are to wherever you want to go</h3>
+    </div>
+    <mat-tab-group
+      mat-stretch-tabs="false"
+      mat-align-tabs="start"
+      animationDuration="0ms"
+    >
+      <mat-tab label="North America">
+        <div class="firsttab">
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/613087.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/619638.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Toronto</h4>
+              <p>Shortest flight:time 16h 07m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/619666.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Los Angekes</h4>
+              <p>Shortest flight:time 17h 40m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/619923.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Hawthorne</h4>
+              <p>Shortest flight:time 18h 00m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/620027.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to San Francisco</h4>
+              <p>Shortest flight:time 17h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/644363.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Chicago</h4>
+              <p>Shortest flight:time 16h 41m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/653280.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Washington</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/653280.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Boston</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+        </div>
+        <div class="QA">
+          <div class="Qtext">
+            <h3>Frequently asked questions</h3>
+          </div>
+          <div class="question">
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Oceania">
+        <div class="firsttab">
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/653280.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Sedney</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/674607.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New Melbourne</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/674773.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to Australia</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/682069.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New Zealand</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+        </div>
+        <div class="QA">
+          <div class="Qtext">
+            <h3>Frequently asked questions</h3>
+          </div>
+          <div class="question">
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Asia">
+        <div class="firsttab">
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/682535.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/684533.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/684561.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/684757.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/684764.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/685403.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/686019.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/688060.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+        </div>
+        <div class="QA">
+          <div class="Qtext">
+            <h3>Frequently asked questions</h3>
+          </div>
+          <div class="question">
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Africa"
+        ><div class="firsttab">
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/688060.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/977041.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/tyt.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/mumbai.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/fg.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/976949.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/976712.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/976696.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+        </div>
+        <div class="QA">
+          <div class="Qtext">
+            <h3>Frequently asked questions</h3>
+          </div>
+          <div class="question">
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Europe">
+        <div class="firsttab">
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/971373.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/619923.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/653280.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/971373.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/976949.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/971373.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+          <div class="div1">
+            <div class="img1">
+              <img
+                src="../../assets/img/tyt.jpg"
+                alt=""
+                style="width: 83px; height: 74px; border-radius: 5px"
+              />
+            </div>
+            <div class="text1">
+              <h4>Mumbai to New York</h4>
+              <p>Shortest flight:time 16h 10m</p>
+            </div>
+          </div>
+        </div>
+        <div class="QA">
+          <div class="Qtext">
+            <h3>Frequently asked questions</h3>
+          </div>
+          <div class="question">
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="example-card">
+              <mat-card-title
+                >Does Booking.com charge credit card fees?
+              </mat-card-title>
+              <mat-card-content>
+                No, we don't charge any credit card fees. You can always see
+                exactly what you’re paying for in the price breakdown when you
+                review your booking.
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div></mat-tab
+      >
+    </mat-tab-group>
+  </div>
+
+  <div class="flightsearch" *ngIf="flightResult">
+    <div class="filters">
+      <div class="clearfilter">
+        <h2>Filter</h2>
+        <p class="filterinfo" *ngIf="filterOpted">
+          Clear Filter
+          <mat-icon (click)="clearFilter()">close</mat-icon>
+        </p>
+      </div>
+      <hr />
+      <div class="filterhead">
+        <h2>Departure</h2>
+      </div>
+      <div class="deptBtn">
+        <button class="btn" value="06:00" (click)="filter()">
+          Before 6:00
+        </button>
+        <button class="btn" value="12:00" (click)="filter12()">
+          6:00-12:00
+        </button>
+        <button class="btn" (click)="filter18()">12:00-18:00</button>
+        <button class="btn" (click)="filterAfter18()">After 18:00</button>
+      </div>
+      <hr />
+      <h2>Stops</h2>
+      <div class="stopBtn">
+        <button class="btn">Direct</button>
+        <button class="btn">1 Stop</button>
+        <button class="btn">2+ Stop</button>
+      </div>
+      <hr />
+      <h2>Price</h2>
+
+      <div class="priceslider">
+        <button class="btn" (click)="priceFilter5()">5k-7k</button>
+        <button class="btn" (click)="priceFilter6()">7k-9k</button>
+        <button class="btn" (click)="priceFilter7()">9k-k</button>
+      </div>
+    </div>
+    <div class="flightDetails">
+      <mat-card
+        class="card"
+        *ngFor="let data of flightSearchedResult"
+        [ngClass]="{
+          red: data.name == 'SpiceJet' || data.name == 'AirAsia',
+          blue: data.name == 'IndiGo',
+          brown: data.name == 'Vistara'
+        }"
+      >
+        <div class="result">
+          <div class="frontside">
+            <div class="left">
+              <img
+                class="spicejet"
+                *ngIf="data.name == 'SpiceJet'"
+                src="../../assets/spicejet.png"
+                alt=""
+              />
+              <img
+                class="indigo"
+                *ngIf="data.name == 'IndiGo'"
+                src="../../assets/indigo-vector-logo-2022-small.png"
+                alt=""
+              />
+              <img
+                class="vistara"
+                *ngIf="data.name == 'Vistara'"
+                src="../../assets/Vistara_Logo.png"
+                alt=""
+              />
+              <img
+                class="airasia"
+                *ngIf="data.name == 'AirAsia'"
+                src="../../assets/download.png"
+                alt=""
+              />
+              <!-- <div class="name">{{ data.name }}</div> -->
+              <div class="source">
+                {{ data.sourceAirportCode }} &nbsp;{{ data.source }}
+              </div>
+              <div class="dt">{{ data.departureTime }}</div>
+            </div>
+            <div class="middle">
+              <div class="duration">{{ data.duration }}</div>
+            </div>
+
+            <div class="destdetail">
+              <div class="destination">
+                {{ data.destinationAirportCode }} &nbsp;{{ data.destination }}
+              </div>
+              <div class="at">{{ data.arrivalTime }}</div>
+            </div>
+            <div class="faredetails">
+              <div class="fare">₹{{ data.fare }}</div>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="book"
+              [ngClass]="{
+                redbtn: data.name == 'SpiceJet' || data.name == 'AirAsia',
+                bluebtn: data.name == 'IndiGo',
+                brownbtn: data.name == 'Vistara'
+              }"
+              (click)="bookdetails(data)"
+            >
+              Book
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="empty"></div>
+</div>

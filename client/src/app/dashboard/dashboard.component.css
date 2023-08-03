@@ -1,0 +1,117 @@
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    font-size: 22px;
+    font-family: serif;
+    border-bottom: 1px solid lightgray;
+    width: fit-content;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-bar ul li {
+    border: 1px solid grey;
+    border-radius: 15px;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.nav-bar ul li a {
+    margin: 15px;
+    color: rgb(96, 95, 95);
+    cursor: pointer;
+}
+
+.nav-bar {
+    margin-top: 19px;
+}
+
+.logo {
+    margin-right: 20px;
+    margin-left: 105px;
+    cursor: pointer;
+}
+
+.nav-bar ul li:hover {
+    background-color: rgba(210, 206, 206, 0.748);
+}
+
+.profile {
+    background-color: grey;
+    border: 1px solid grey;
+    width: 30px;
+    height: 30px;
+    border-radius: 16px;
+    margin-right: 200px;
+    margin-top: 19px;
+}
+
+.header .logo img {
+    width: 193px;
+    height: 58px;
+}
+
+.name {
+    margin-top: -25px;
+    margin-left: 35px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.name a {
+    text-decoration: none;
+    color: rgb(96, 95, 95);
+}
+
+.body {
+    overflow-x: hidden;
+}
+
+.mat-icon {
+    -webkit-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 17px;
+    width: 18px;
+    overflow: hidden;
+    font-size: 19px;
+}
+
+.err {
+    width: fit-content;
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
+
+.success {
+    width: fit-content;
+    background-color: green;
+    color: white;
+    padding: 5px;
+}
+
+.active {
+    background-color: #3586FF;
+}
+
+.active a {
+    color: white !important;
+}
+
+.login {
+    position: relative;
+    margin-left: 908px;
+}

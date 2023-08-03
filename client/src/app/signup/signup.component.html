@@ -1,0 +1,72 @@
+<div class="form">
+  <h2 class="header">Sign-Up</h2>
+  <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            class="inputfield"
+            type="name"
+            formControlName="name"
+            matInput
+          />
+        </mat-form-field>
+        <br /><br />
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            class="inputfield"
+            type="email"
+            formControlName="email"
+            matInput
+          />
+        </mat-form-field>
+        <br /><br />
+
+        <mat-form-field appearance="outline">
+          <mat-label>DateOfBirth</mat-label>
+          <input
+            class="inputfield"
+            type="date"
+            formControlName="date_of_birth"
+            matInput
+          />
+        </mat-form-field>
+
+        <br /><br />
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            class="inputfield"
+            type="Password"
+            formControlName="password"
+            matInput
+          />
+        </mat-form-field>
+        <br /><br />
+        <mat-card-actions>
+          <button
+            class="btn"
+            mat-raised-button
+            type="submit"
+            mat-raised-button
+            [disabled]="!SignupForm.valid"
+            (click)="openDialog()"
+            mat-dialog-close
+          >
+            Signup
+          </button>
+        </mat-card-actions>
+        <div class="footer">
+          <div class="success" *ngIf="signin"><mat-icon>check</mat-icon></div>
+          <p>
+            Already have an account?
+            <a class="red" mat-dialog-close (click)="openDialog()">Login</a>
+          </p>
+        </div>
+      </mat-card-content>
+    </div>
+  </form>
+</div>

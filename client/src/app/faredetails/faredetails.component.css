@@ -1,0 +1,59 @@
+.nameimg img {
+    width: 126px;
+    height: 38px;
+    padding-top: 5px;
+    margin-left: 25px;
+}
+
+.body {
+    width: 542px;
+}
+
+.header {
+    margin-top: 22px;
+    margin-left: 26px;
+}
+
+.detailhead {
+    display: flex;
+}
+
+.sourcedest h3 {
+    margin-left: 7px;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid grey;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.tab {
+    padding: 30px;
+}
+
+.header h3 {
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
+.close {
+    margin-top: -51px;
+    margin-left: 241px;
+    cursor: pointer;
+}
