@@ -319,17 +319,18 @@
           mat-raised-button
           type="submit"
           mat-raised-button
+          [disabled]="!traveller_details.valid"
           [style.backgroundColor]="traveller_details.valid ? 'green' : 'red'"
           [style.color]="traveller_details.valid ? 'white' : 'white'"
         >
-          <!-- [disabled]="!traveller_details.valid" -->
+          <!--  -->
           Proceed
         </button>
       </div>
     </form>
   </div>
-  <div class="afterdetails">
-    <!-- *ngIf="validDetails" -->
+  <div class="afterdetails" *ngIf="validDetails">
+    <!--  -->
     <div class="card6">
       <div class="cardhead">
         <h2>Seats</h2>
