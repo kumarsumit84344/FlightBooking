@@ -20,6 +20,7 @@ export class FlightComponent {
   roundTravelDetails!: FormGroup;
   flightResult: boolean = false;
   flightSearchedResult: any;
+  ShowNotice: boolean = true;
 
   constructor(
     private service: ApiService,
@@ -146,5 +147,8 @@ export class FlightComponent {
   bookdetails(data: any[]) {
     this.router.navigate(['/bookingDetails']);
     this.service.bookingData = data;
+  }
+  close() {
+    this.ShowNotice = false;
   }
 }
