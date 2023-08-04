@@ -1,3 +1,11 @@
+<div class="notice">
+  <div class="noticetext">
+    <p>
+      This website is for demo Purpose.
+      <span>Please select Delhi as source and Mumbai as Destination</span>
+    </p>
+  </div>
+</div>
 <div class="body">
   <app-dashboard></app-dashboard>
   <section>
@@ -17,7 +25,7 @@
           checked="checked"
         />
         <label for="html" checked>One-way</label>
-        <input
+        <!-- <input
           class="round"
           type="radio"
           id="round"
@@ -25,7 +33,7 @@
           value="round"
           (change)="onChange($event)"
         />
-        <label for="css">Round-trip</label>
+        <label for="css">Round-trip</label> -->
       </div>
       <form [formGroup]="oneWayTravelDetails" (ngSubmit)="onSubmit()">
         <div class="search">

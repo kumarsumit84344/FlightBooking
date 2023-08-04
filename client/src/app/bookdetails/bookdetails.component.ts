@@ -111,7 +111,8 @@ export class BookdetailsComponent {
   payment() {
     if (!this.isSeatSelected) {
       alert('please choose your seat');
-    } else {
+    }
+    else {
       this.showLoader = true;
       this.statusMsg = 'Hold-On..Confirming your Seat...';
       setTimeout(() => {

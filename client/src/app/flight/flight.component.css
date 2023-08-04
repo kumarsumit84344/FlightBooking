@@ -604,3 +604,25 @@ mat-slider {
   padding-bottom: 28px;
 
 }
+
+.notice .noticetext span {
+  font-weight: 500;
+  color: red;
+}
+
+.notice .noticetext {
+  font-size: 15px;
+}
+
+.notice {
+  width: 403px;
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  border: 2px solid grey;
+  padding: 4px;
+  margin-left: 1106px;
+  margin-top: 70px;
+  line-height: 27px;
+  opacity: 0.5;
+}
