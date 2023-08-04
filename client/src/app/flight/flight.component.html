@@ -1,11 +1,16 @@
 <div class="notice" *ngIf="ShowNotice">
   <div class="noticetext">
-    <p>
-      This website is for demo Purpose.
-      <span>Please select Delhi as source and Mumbai as Destination</span>
+    <p>This website is for demo Purpose.</p>
+    <p class="highlight">
+      Please select Delhi as source and Mumbai as Destination
     </p>
   </div>
   <mat-icon (click)="close()">close</mat-icon>
+
+  <span class="top"></span>
+  <span class="right"></span>
+  <span class="bottom"></span>
+  <span class="left"></span>
 </div>
 <div class="body">
   <app-dashboard></app-dashboard>

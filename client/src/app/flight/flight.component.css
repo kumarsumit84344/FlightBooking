@@ -605,9 +605,10 @@ mat-slider {
 
 }
 
-.notice .noticetext span {
+.notice .noticetext .highlight {
   font-weight: 500;
   color: red;
+  margin-top: -17px;
 }
 
 .notice .noticetext {
@@ -616,21 +617,161 @@ mat-slider {
 }
 
 .notice {
-  width: 403px;
+  width: 351px;
   position: absolute;
   z-index: 2;
-  background-color: white;
-  border: 2px solid grey;
+  background-color: inherit;
+  /* border: 2px solid grey; */
+  border-radius: 9px;
   padding: 4px;
-  margin-left: 1106px;
+  margin-left: 1160px;
   margin-top: 70px;
   line-height: 27px;
-  opacity: 0.5;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 .mat-icon {
-  margin-top: -64px;
+  margin-top: -86px;
   position: absolute;
   color: red;
+}
+
+.notice:hover {
+  opacity: 1;
+}
+
+
+
+.notice span {
+  position: absolute;
+  border-radius: 100vmax;
+
+
+}
+
+.notice .top {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(90deg,
+      transparent 50%,
+      rgba(255, 49, 49, 0.5),
+      rgb(255, 49, 49));
+
+}
+
+.notice .bottom {
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: linear-gradient(90deg,
+      rgb(57, 255, 20),
+      rgba(57, 255, 20, 0.5),
+      transparent 50%);
+}
+
+.notice .right {
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 0;
+  background: linear-gradient(180deg,
+      transparent 30%,
+      rgba(0, 255, 255, 0.5),
+      rgb(0, 255, 255));
+}
+
+.notice .left {
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 0;
+  background: linear-gradient(180deg,
+      rgb(255, 255, 113),
+      rgba(255, 255, 113, 0.5),
+      transparent 70%);
+}
+
+.notice .top {
+  animation: animateTop 3s ease-in-out infinite;
+}
+
+.notice .bottom {
+  animation: animateBottom 3s ease-in-out infinite;
+}
+
+.notice .right {
+  animation: animateRight 3s ease-in-out infinite;
+}
+
+.notice .left {
+  animation: animateLeft 3s ease-in-out infinite;
+}
+
+@keyframes animateTop {
+  25% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animateBottom {
+
+  0%,
+  50% {
+    opacity: 0;
+    width: 0;
+  }
+
+  75% {
+    opacity: 1;
+    width: 100%;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animateRight {
+
+  0%,
+  25% {
+    opacity: 0;
+    height: 0;
+  }
+
+  50% {
+    opacity: 1;
+    height: 100%;
+  }
+
+  55%,
+  100% {
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes animateLeft {
+
+  0%,
+  75% {
+    opacity: 0;
+    bottom: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
 }
